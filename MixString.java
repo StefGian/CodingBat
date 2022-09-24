@@ -16,33 +16,23 @@ public class MixString {
 
     public static String mixString(String a, String b) {
 
-        char[] strA = a.toCharArray();
+         int aLen = a.length();
 
-        char[] strB = b.toCharArray();
+	    int bLen = b.length();
 
-        char[] mix = new char[strA.length + strB.length];
+	    int max = Math.max(aLen, bLen);
 
-        int count=0;
-        for (int ca = 0; ca < strA.length; ca++) {
-                mix[count] = strA[ca];
-                if(count + 2< mix.length){
-                    count += 2;
-                }
+	    String word = "";
+	   
+	    for (int i = 0; i < max; i++) {
+            if (i <= aLen-1){
+            word += a.substring(i,i+1);
+            }
+            if (i <= bLen-1){
+            word += b.substring(i,i+1);
+            }
         }
-
-        int countb=1;
-        for (int ca = 0; ca < strB.length; ca++) {
-                mix[countb] = strB[ca];
-                if(countb + 2 < mix.length){
-                    countb += 2;
-                }
-        }
-
-
-        String s = new String(mix);
-        System.out.println("s: " + s);
-
-        return new String(mix);
+	  return word;
     }
 
 }
